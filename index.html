@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boda de Andrea &amp; Daniel</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <style>
+    :root{
+      --vino: #800020;
+      --rosa: #E2B8BB;
+      --texto: #3a2a2a;
+    }
+    *{box-sizing:border-box}
+    body {
+      margin: 0;
+      font-family: Calibri, 'Open Sans', sans-serif;
+      background-color: #FFFFFF;
+      color: var(--vino);
+      line-height: 1.5;
+    }
+    /* Cabecera de color vino */
+    header.site-header {
+      background-color: var(--vino);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+    header.site-header h1 {
+      font-family: Calibri, sans-serif;
+      font-weight: normal;
+      font-size: 2.6rem;
+      margin: 0;
+      letter-spacing: 1px;
+    }
+    header.site-header p {
+      margin: 8px 0 0 0;
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+
+    /* Sección de cabecera con foto (hero) */
+    .hero {
+      max-width: 1000px;
+      margin: 22px auto;
+      padding: 0 20px;
+    }
+    .hero-image {
+      width: 100%;
+      display: block;
+      margin: 0 auto;
+      max-height: 520px;
+      object-fit: cover;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 28px auto;
+      padding: 0 20px;
+    }
+    h2 {
+      text-align: center;
+      color: var(--vino);
+      margin-bottom: 12px;
+    }
+
+    .hotel {
+      background: var(--rosa);
+      border-left: 4px solid var(--vino);
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      color: var(--texto);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    input, select, textarea, button {
+      padding: 10px;
+      font-size: 1em;
+      border: 1px solid #d1c7c7;
+      border-radius: 6px;
+    }
+    button {
+      background-color: var(--vino);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      padding: 12px;
+    }
+    button:hover { background-color: #5c3010; }
+
+    /* Galería responsive centrada */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      padding: 10px 0;
+    }
+    .gallery img {
+      width: calc(33.333% - 16px);
+      max-width: 320px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+    }
+
+    /* Ajustes para pantallas pequeñas */
+    @media (max-width: 800px) {
+      .gallery img {
+        width: calc(50% - 12px);
+        height: 180px;
+      }
+      header.site-header h1 { font-size: 2rem; }
+    }
+    @media (max-width: 420px) {
+      .gallery img {
+        width: calc(100% - 12px);
+        height: 160px;
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: var(--rosa);
+      font-size: 0.95rem;
+      color: var(--texto);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <h1>ANDREA &amp; DANI</h1>
+    <p>25.04.2026 — Rectoral de Cobres, Pontevedra</p>
+  </header>
+
+  <!-- Sección separada con la foto de cabecera -->
+  <section class="hero">
+    <img src="images/foto1.JPG" alt="Andrea y Dani" class="hero-image">
+  </section>
+
+  <section>
+    <h2>Detalles del evento</h2>
+    <div class="hotel">
+      <p>📅 <strong>Fecha:</strong> La ceremonia se llevará a cabo el 25 de abril de 2026 a las 13:00</p>
+      <p>📍 <strong>Lugar:</strong> Rectoral de Cobres, Pontevedra</p>
+      <p><a href="https://www.google.com/maps/place/Rectoral+de+Cobres" target="_blank" rel="noopener">Ver ubicación en Google Maps</a></p>
+      <p>🅿️ El lugar dispone de <strong>parking</strong>.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Confirma tu asistencia al evento</h2>
+    <div class="hotel">
+      <form action="https://api.web3forms.com/submit" method="POST" accept-charset="UTF-8">
+        <input type="hidden" name="access_key" value="56c8f42e-2e12-4c7a-9b87-626218cf696c">
+        <input type="hidden" name="subject" value="Confirmacion asistencia - Comida">
+        <input type="hidden" name="redirect" value="gracias.html">
+        <input type="text" name="nombre" placeholder="Tu nombre completo" required>
+        <input type="number" name="acompanantes" placeholder="Numero de acompanantes" min="0" required>
+        <select name="menu" required>
+          <option value="">Preferencia de menú</option>
+          <option value="Normal">Normal</option>
+          <option value="Vegetariano">Vegetariano</option>
+          <option value="Vegano">Vegano</option>
+          <option value="Sin gluten">Sin gluten</option>
+        </select>
+        <textarea name="comentarios" placeholder="Comentarios adicionales"></textarea>
+        <button type="submit">💌 Confirmar asistencia al evento</button>
+      </form>
+    </div>
+  </section>
+
+  <section>
+    <h2>Autobuses</h2>
+    <div class="hotel">
+      <p>Habrá autobuses disponibles para los invitados. Indícanos si lo necesitas y desde dónde.</p>
+      <form action="https://api.web3forms.com/submit" method="POST" accept-charset="UTF-8">
+        <input type="hidden" name="access_key" value="56c8f42e-2e12-4c7a-9b87-626218cf696c">
+        <input type="hidden" name="subject" value="Solicitud autobus">
+        <input type="hidden" name="redirect" value="gracias.html">
+        <input type="text" name="nombre" placeholder="Tu nombre completo" required>
+        <label>
+          ¿Necesitas autobus?
+          <select name="bus" required>
+            <option value="">Selecciona una opcion</option>
+            <option value="Si">Si</option>
+            <option value="No">No</option>
+          </select>
+        </label>
+        <label>
+          Ciudad de salida:
+          <select name="origen">
+            <option value="">Selecciona origen</option>
+            <option value="Vigo">Vigo</option>
+            <option value="Pontevedra">Pontevedra</option>
+          </select>
+        </label>
+        <button type="submit">🚌 Confirmar transporte</button>
+      </form>
+    </div>
+  </section>
+
+  <section>
+    <h2>Alojamientos</h2>
+    <div class="hotel">
+      <b>Hotel Occidental Vigo</b><br>
+      📍 Vigo<br>
+      🏷️ 5% descuento con código <b>INVITADOSBODA26</b><br>
+      🌐 <a href="https://www.barcelo.com" target="_blank" rel="noopener">www.barcelo.com</a><br>
+      ☎️ 971 928 021
+    </div>
+    <div class="hotel">
+      <b>Hotel Ciudad de Vigo</b><br>
+      📍 Vigo<br>
+      🏷️ 20% descuento reservando a través de<br>
+      ✉️ <a href="mailto:reservas@ciudaddevigo.com">reservas@ciudaddevigo.com</a><br>
+      ☎️ 986 227 820<br>
+      Código: <b>BODA ANDREA &amp; DANI</b>
+    </div>
+  </section>
+
+  <section>
+    <h2>Galería</h2>
+    <div class="gallery" id="gallery">
+      <!-- Añade aquí tus fotos: nombre exacto foto2.JPG, foto3.JPG... -->
+      <img src="images/foto1.JPG" alt="Foto 1">
+      <!-- si subes más fotos, copia la línea anterior cambiando el nombre-->
+    </div>
+  </section>
+
+  <footer>
+    <p>Con muchas ganas de contar contigo en nuestro día para hacerlo, si cabe, más especial. Con mucho cariño, Andrea &amp; Daniel ❤️</p>
+  </footer>
+
+</body>
+</html>
